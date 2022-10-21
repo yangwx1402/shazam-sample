@@ -1,8 +1,7 @@
-package com.coolcollege.sample.dubbo.provider;
+package com.coolcollege.sample.dubbo.provider.service;
 
-import com.coolcollege.sample.dubbo.constants.Constants;
-import com.coolcollege.sample.dubbo.dto.UserDTO;
-import com.coolcollege.sample.dubbo.facade.UserServiceFacade;
+import com.coolcollege.sample.dubbo.interfaces.dto.UserDTO;
+import com.coolcollege.sample.dubbo.interfaces.facade.UserServiceFacade;
 import org.apache.dubbo.config.annotation.DubboService;
 
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-@DubboService(registry = "zk",version = Constants.DUBBO_SERVICE_VERSION, group = Constants.DUBBO_SERVICE_GROUP, timeout = Constants.DUBBO_SERVICE_TIMEOUT)
+@DubboService
 public class UserServiceFacadeImpl implements UserServiceFacade {
 
     private Map<Long,UserDTO> userMapping = new ConcurrentHashMap<>();

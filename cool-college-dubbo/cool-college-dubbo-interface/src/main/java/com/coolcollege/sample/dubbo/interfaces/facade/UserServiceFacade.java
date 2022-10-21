@@ -1,6 +1,6 @@
-package com.coolcollege.sample.dubbo.facade;
+package com.coolcollege.sample.dubbo.interfaces.facade;
 
-import com.coolcollege.sample.dubbo.dto.UserDTO;
+import com.coolcollege.sample.dubbo.interfaces.dto.UserDTO;
 
 import java.util.List;
 

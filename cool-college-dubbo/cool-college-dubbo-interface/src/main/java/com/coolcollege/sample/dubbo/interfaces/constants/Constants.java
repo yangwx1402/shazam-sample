@@ -1,4 +1,4 @@
-package com.coolcollege.sample.dubbo.constants;
+package com.coolcollege.sample.dubbo.interfaces.constants;
 
 /**
   @author shazam
