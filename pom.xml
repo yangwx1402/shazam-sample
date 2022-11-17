@@ -14,9 +14,10 @@
     <url>http://www.example.com</url>
 
     <modules>
-        <module>cool-college-dubbo</module>
         <module>cool-college-tddl</module>
         <module>cool-college-shardingjdbc</module>
+        <module>cool-college-sofa</module>
+        <module>cool-college-dubbo</module>
     </modules>
 
     <properties>
