@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Date;
+import java.util.stream.IntStream;
 
 /**
   @author shazam
@@ -21,7 +22,14 @@ public class SofaConsumerBootstrap {
     public static void main(String[] args) {
         ApplicationContext applicationContext = SpringApplication.run(SofaConsumerBootstrap.class,args);
         OrderServiceClient orderServiceClient = applicationContext.getBean(OrderServiceClient.class);
-        OrderId orderId = orderServiceClient.createOrder("shazam",new Date(),1000.0);
-        System.out.println(orderId);
+        IntStream.range(0,100).forEach(index->{
+            OrderId orderId = orderServiceClient.createOrder("shazam_"+index,new Date(),1000.0);
+            System.out.println(orderId);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }

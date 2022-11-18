@@ -1,6 +1,9 @@
 package com.coolcollege.sample.sofa.consumer.consumer;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alipay.sofa.runtime.api.annotation.SofaReference;
+import com.alipay.sofa.runtime.api.annotation.SofaReferenceBinding;
 import com.coolcollege.sample.sofa.interfaces.dto.Order;
 import com.coolcollege.sample.sofa.interfaces.dto.OrderId;
 import com.coolcollege.sample.sofa.interfaces.facade.OrderService;
@@ -12,7 +15,7 @@ import java.util.Date;
 @Component
 public class OrderServiceClient {
 
-    @SofaReference(interfaceType = OrderService.class)
+    @SofaReference(interfaceType = OrderService.class,uniqueId = "com.coolcollege.sample.sofa.interfaces.facade.OrderService",binding = @SofaReferenceBinding(bindingType = "bolt"))
     private OrderService orderService;
 
     public OrderId createOrder(String creator, Date createTime, Double amout){
