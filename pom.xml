@@ -18,6 +18,7 @@
         <module>cool-college-shardingjdbc</module>
         <module>cool-college-sofa</module>
         <module>cool-college-dubbo</module>
+        <module>cool-college-compileflow</module>
     </modules>
 
     <properties>

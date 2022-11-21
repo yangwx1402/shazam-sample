@@ -23,12 +23,12 @@ public class SofaConsumerBootstrap {
         ApplicationContext applicationContext = SpringApplication.run(SofaConsumerBootstrap.class,args);
         OrderServiceClient orderServiceClient = applicationContext.getBean(OrderServiceClient.class);
         IntStream.range(0,100).forEach(index->{
-            OrderId orderId = orderServiceClient.createOrder("shazam_"+index,new Date(),1000.0);
-            System.out.println(orderId);
             try {
+                OrderId orderId = orderServiceClient.createOrder("shazam_"+index,new Date(),1000.0);
+                System.out.println(orderId);
                 Thread.sleep(100);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         });
     }

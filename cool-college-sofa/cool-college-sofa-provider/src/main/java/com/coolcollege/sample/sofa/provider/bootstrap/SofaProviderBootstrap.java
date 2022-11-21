@@ -14,6 +14,8 @@ import java.io.IOException;
 @SpringBootApplication
 @ComponentScan("com.coolcollege.sample.sofa.provider")
 public class SofaProviderBootstrap {
+
+
     public static void main(String[] args) throws IOException {
         SpringApplication.run(SofaProviderBootstrap.class, args);
         System.in.read();

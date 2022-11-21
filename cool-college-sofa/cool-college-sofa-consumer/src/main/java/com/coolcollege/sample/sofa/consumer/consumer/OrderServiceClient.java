@@ -22,7 +22,6 @@ public class OrderServiceClient {
         Order order = new Order(null,creator,createTime,amout);
         OrderId orderId = orderService.createOrder(order);
         Assert.notNull(orderId);
-        System.out.println(orderId);
         return orderId;
     }
 }

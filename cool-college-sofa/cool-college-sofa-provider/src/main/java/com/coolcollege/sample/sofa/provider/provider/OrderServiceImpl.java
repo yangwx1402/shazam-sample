@@ -2,6 +2,7 @@ package com.coolcollege.sample.sofa.provider.provider;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.alibaba.csp.sentinel.slots.block.flow.FlowException;
 import com.alipay.sofa.runtime.api.annotation.SofaService;
 import com.alipay.sofa.runtime.api.annotation.SofaServiceBinding;
 import com.coolcollege.sample.sofa.interfaces.dto.Order;
@@ -21,7 +22,7 @@ public class OrderServiceImpl implements OrderService {
     private Map<OrderId,Order> orderMapping = new ConcurrentHashMap<>();
 
     @Override
-    @SentinelResource(blockHandler = "blockHandlerForGetUser")
+    @SentinelResource(value = "OrderServiceImpl.createOrder",fallback = "fallbackCreateOrder",blockHandler = "fallbackCreateOrder")
     public OrderId createOrder(Order order) {
         Validate.notNull(order);
         OrderId orderId = new OrderId("test",System.currentTimeMillis());
@@ -29,8 +30,9 @@ public class OrderServiceImpl implements OrderService {
         return orderId;
     }
 
-    public OrderId blockHandlerForGetUser(String id, BlockException ex) {
-        return new OrderId(id,1L);
+    public OrderId fallbackCreateOrder(Order order, BlockException blockException){
+        System.out.println("fallbackCreateOrder ");
+        return new OrderId("test",System.currentTimeMillis());
     }
 
     @Override
