@@ -19,6 +19,7 @@
         <module>cool-college-sofa</module>
         <module>cool-college-dubbo</module>
         <module>cool-college-compileflow</module>
+        <module>cool-college-sentinel-sample</module>
     </modules>
 
     <properties>
