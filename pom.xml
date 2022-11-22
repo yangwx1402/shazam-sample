@@ -19,6 +19,7 @@
         <module>shazam-sofa</module>
         <module>shazam-dubbo</module>
         <module>shazam-compileflow</module>
+        <module>shazam-ddd</module>
     </modules>
 
     <properties>
